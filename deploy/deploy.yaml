@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: argo-app
+  template:
+    metadata:
+      labels:
+        app: argo-app
+    spec:
+      containers:
+      - name: argo-app
+        image: hirudoc5/argo-app:v20250105121337
+        ports:
+        - containerPort: 5000
